@@ -29,7 +29,7 @@ class PracticaController extends Controller
      */
     public function index()
     {
-        return view('practicas.ver-practica');
+        return view('practicas.index-practica');
     }
 
     /**
@@ -39,7 +39,29 @@ class PracticaController extends Controller
      */
     public function create()
     {
-        //
+        $rand = range(1, 25);
+        shuffle($rand);
+        $materiales = DB::table('material_quimico')
+            ->select('id', 'nombre')
+            ->orderBY('id', 'ASC')
+            ->get();
+        $sustancias = DB::table('sustancia_quimica')
+            ->select('id', 'nombre')
+            ->orderBY('id', 'ASC')
+            ->get();
+        $grupos = DB::table('grupos')
+            ->orderBY('id', 'ASC')
+            ->get();
+        $carreras = DB::table('carreras')
+            ->orderBY('id', 'ASC')
+            ->get();
+        return view('practicas.registrar-practica', [
+            'rand' => $rand,
+            'materiales' => $materiales,
+            'sustancias' => $sustancias,
+            'grupos' => $grupos,
+            'carreras' => $carreras
+        ]);
     }
 
     /**

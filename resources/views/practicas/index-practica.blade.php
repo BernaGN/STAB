@@ -12,7 +12,7 @@
                         <div class="col">
                             <div class="items">
                                 <div class="row">
-                                    <div class="col" style="margin: 0px;margin-bottom: 4px;"><button class="btn btn-primary btn-block" type="button">Agregar practica</button></div>
+                                    <div class="col" style="margin: 0px;margin-bottom: 4px;"><a class="btn btn-primary" href="{{ route('practica.create') }}">Agregar practica</a></div>
                                 </div>
                                 <div class="row justify-content-center" style="margin-bottom: 5px;">
                                     <div class="col align-self-center"><input type="text" required="" autofocus="" style="width: 100%;"></div>
